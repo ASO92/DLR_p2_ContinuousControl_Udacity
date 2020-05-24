@@ -98,13 +98,10 @@ Alternatively, you can install the complete Anaconda Platform
 
 ####  4.3 Configuring the local environment
 
-#### Installing the packages  
-If you have problems to create the environment following the steps above, alternatively you can create the environment and install the required packages by following the steps below.  
-
-The following steps
+#### Installing the packages
+The following steps will guide you to install the necesary dependences to execute correctly the environment.
 
 **1. Create the environment**  
-
 ```
 $ conda create --name drlnd-p2-control python=3.6
 $ conda activate drlnd-p2-control
@@ -138,7 +135,7 @@ $ conda install pytorch -c pytorch
 $ pip install unityagents
 ```  
 
-### Download the Unity environment with the Agents  
+#### 4.4. Download the Unity environment with the Agents  
 
 Download the environment from one of the links below and decompress the file into your project folder.  
 You need only select the environment that matches your operating system:
@@ -160,10 +157,18 @@ You need only select the environment that matches your operating system:
 
 (_For AWS_) If you'd like to train the agent on AWS (and have not [enabled a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md)), then please use [this link](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/one_agent/Reacher_Linux_NoVis.zip) (version 1) or [this link](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Linux_NoVis.zip) (version 2) to obtain the "headless" version of the environment.  You will **not** be able to watch the agent without enabling a virtual screen, but you will be able to train the agent.  (_To watch the agent, you should follow the instructions to [enable a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md), and then download the environment for the **Linux** operating system above._)
 
-#### 4.4  Download the Unity environment with the Agents  
 
 ## 5. Train the agent
 
+## 6. Uninstall
+If you wish to revert all the modifies in your system, and remove all the code, dependencies and programs installed in the steps above, you will want to follow the next steps.
+
+#### 6.1 Uninstall Miniconda or Anaconda
+To do so, please refer to [this link](https://docs.anaconda.com/anaconda/install/uninstall/).
+
+
+#### 6.2 Remove the code
+Simply delete the entire folder containing the code you downloaded in the step "Getting the code"
 
 
 ## 10.- (Optional) Challenge: Crawler Environment
