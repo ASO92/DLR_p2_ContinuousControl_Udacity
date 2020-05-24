@@ -17,7 +17,7 @@ This repository includes the code of my personal attempt to solve the second wor
 
 It may be a representation of a real problem of several robotic arms trying to grab any object, as we can see in the following image.
 
-![Google][image2]
+![Google](https://3.bp.blogspot.com/-I6UKhtpt-pI/WzP8ThUgMRI/AAAAAAAADFQ/mmbmu0YtDeAGT1RJj0pDPPm_jYyyYYg0gCLcBGAs/s1600/image8.gif)
 *Credit image: [Google AI Blog](https://ai.googleblog.com/2018/06/scalable-deep-reinforcement-learning.html)*
 
 ## 2. First steps in the environment
