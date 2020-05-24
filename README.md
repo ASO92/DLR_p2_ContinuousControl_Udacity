@@ -157,8 +157,31 @@ You need only select the environment that matches your operating system:
 
 (_For AWS_) If you'd like to train the agent on AWS (and have not [enabled a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md)), then please use [this link](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/one_agent/Reacher_Linux_NoVis.zip) (version 1) or [this link](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Linux_NoVis.zip) (version 2) to obtain the "headless" version of the environment.  You will **not** be able to watch the agent without enabling a virtual screen, but you will be able to train the agent.  (_To watch the agent, you should follow the instructions to [enable a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md), and then download the environment for the **Linux** operating system above._)
 
-
 ## 5. Train the agent
+
+
+#### 5.2 Adjusting the Hyperparameters
+To experiment with how the Agent learns through distinct parameters, you can tune these variables:  
+
+**1.** In the **Continuous_Control.ipynb** file  
+
+* **\_target_score**: How many points your agent must obtain to consider the environment solved
+* **\_target_episodes**: How many episodes to consider when calculating the moving average
+* **n_episodes**: Maximum number of training episodes
+* **max_t**: Maximum number of time steps per episode
+* **random_seed**: The number used to initialize the pseudorandom number generator
+
+**2.** In the **ddpg_agent.py** file
+
+* \_batch_size: Minibatch size
+* \_buffer_size: Replay buffer size
+* \_gamma: Discount factor for expected rewards
+* \_lr_actor: Learning rate for the local actor's network
+* \_lr_critic: Learning rate for the local critic's network
+* \_tau: Multiplicative factor for the soft-update of the target networks's weights
+* \_noise_decay: Multiplicative factor for the noise-process rate decay
+* fc_layers for the actor network: Number and size of the actor network's layers
+* fc_layers for the critic network: Number and size of the critic network's layers
 
 ## 6. Uninstall
 If you wish to revert all the modifies in your system, and remove all the code, dependencies and programs installed in the steps above, you will want to follow the next steps.
