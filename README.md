@@ -173,15 +173,15 @@ To experiment with how the Agent learns through distinct parameters, you can tun
 
 **2.** In the **ddpg_agent.py** file
 
-* \_batch_size: Minibatch size
-* \_buffer_size: Replay buffer size
-* \_gamma: Discount factor for expected rewards
-* \_lr_actor: Learning rate for the local actor's network
-* \_lr_critic: Learning rate for the local critic's network
-* \_tau: Multiplicative factor for the soft-update of the target networks's weights
-* \_noise_decay: Multiplicative factor for the noise-process rate decay
-* fc_layers for the actor network: Number and size of the actor network's layers
-* fc_layers for the critic network: Number and size of the critic network's layers
+* **\_batch_size**: Minibatch size
+* **\_buffer_size**: Replay buffer size
+* **\_gamma**: Discount factor for expected rewards
+* **\_lr_actor**: Learning rate for the local actor's network
+* **\_lr_critic**: Learning rate for the local critic's network
+* **\_tau**: Multiplicative factor for the soft-update of the target networks's weights
+* **\_noise_decay**: Multiplicative factor for the noise-process rate decay
+* **fc_layers for the actor network**: Number and size of the actor network's layers
+* **fc_layers for the critic network**: Number and size of the critic network's layers
 
 ## 6. Uninstall
 If you wish to revert all the modifies in your system, and remove all the code, dependencies and programs installed in the steps above, you will want to follow the next steps.
