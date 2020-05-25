@@ -12,12 +12,14 @@
 
 This repository includes the code of my personal attempt to solve the second work project of the Udacity Nanodegree. In the following photograph it is posible to see the environment solved.
 
-![Trained Agent][image1]
+<img src="https://user-images.githubusercontent.com/10624937/43851024-320ba930-9aff-11e8-8493-ee547c6af349.gif" width="80%" align="centre" alt="" title="Optimal Policy Equation" />
+
 *Credit image: [Trained agent in Reacher Environment](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher)*
 
 It may be a representation of a real problem of several robotic arms trying to grab any object, as we can see in the following image.
 
 ![Google](./assets/GoogleSevenRobots.gif)
+
 *Credit image: [Google AI Blog](https://ai.googleblog.com/2018/06/scalable-deep-reinforcement-learning.html)*
 
 ## 2. First steps in the environment
