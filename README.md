@@ -12,7 +12,7 @@
 
 This repository includes the code of my personal attempt to solve the second work project of the Udacity Nanodegree. In the following photograph it is posible to see the environment solved.
 
-<img src="https://user-images.githubusercontent.com/10624937/43851024-320ba930-9aff-11e8-8493-ee547c6af349.gif" width="80%" align="centre" alt="" title="Optimal Policy Equation" />
+<img src="https://user-images.githubusercontent.com/10624937/43851024-320ba930-9aff-11e8-8493-ee547c6af349.gif" width="50%" align="centre" alt="" title="Optimal Policy Equation" />
 
 *Credit image: [Trained agent in Reacher Environment](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher)*
 
