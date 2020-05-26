@@ -21,7 +21,7 @@ LEARN_NUM = 10          # number of learning passes
 OU_SIGMA = 0.2          # Ornstein-Uhlenbeck noise parameter
 OU_THETA = 0.15         # Ornstein-Uhlenbeck noise parameter
 EPSILON = 1.0           # explore->exploit noise process added to act step
-EPSILON_DECAY = 1e-6    # decay rate for noise process
+EPSILON_DECAY = 1e-3    # decay rate for noise process
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
