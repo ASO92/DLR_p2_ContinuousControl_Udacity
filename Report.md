@@ -2,10 +2,14 @@
 
 ## Environment to be solved
 
-In a first attempt it was intended to solve the environment with 20 agents, nevertheless the time spent on training the model made really difficult the trial and error attempts.
+In a first attempt it was intended to solve the environment with 20 agents, nevertheless the time spent on training the model made really difficult the trial and error attempts. Almost 15 mins for episode, does not give option to tune hyperparamenters and see results quickly.
+![Trial-error attempts](./assets/time_1episode_1000tsteps.PNG)
+
+
+
 For that reason, finally, I decided to solve the **Version 1** of the environment, with just ONE agent.
 
-Goal of Version 1:
+**Goal of Version 1:**
 The task is episodic, and in order to solve the environment, your agent must get an average score of +30 over 100 consecutive episodes.
 
 ##### &nbsp;
@@ -90,28 +94,26 @@ However, this approach won't work for controlling a robotic arm. The reason is t
 
 Instead, we'll use the **Ornstein-Uhlenbeck process**, as suggested in the previously mentioned [paper by Google DeepMind](https://arxiv.org/pdf/1509.02971.pdf) (see bottom of page 4). The Ornstein-Uhlenbeck process adds a certain amount of noise to the action values at each timestep. This noise is correlated to previous noise, and therefore tends to stay in the same direction for longer durations without canceling itself out. This allows the arm to maintain velocity and explore the action space with more continuity.
 
-You can find the Ornstein-Uhlenbeck process implemented [here](https://github.com/ASO92/DRL_p2_ContinuousControl_Udacity/blob/master/ddpg_agent.py#L142) in the `OUNoise` class in `ddpg_agent.py` of the source code.
+You can find the Ornstein-Uhlenbeck process implemented [here](https://github.com/ASO92/DRL_p2_ContinuousControl_Udacity/blob/master/ddpg_agent.py#L139) in the `OUNoise` class in `ddpg_agent.py` of the source code.
 
-In total, there are five hyperparameters related to this noise process.
+
 
 The Ornstein-Uhlenbeck process itself has three hyperparameters that determine the noise characteristics and magnitude:
 - mu: the long-running mean
 - theta: the speed of mean reversion
 - sigma: the volatility parameter
 
-Of these, I only tuned sigma. After running a few experiments, I reduced sigma from 0.3 to 0.2. The reduced noise volatility seemed to help the model converge faster.
 
-Notice also there's an epsilon parameter used to decay the noise level over time. This decay mechanism ensures that more noise is introduced earlier in the training process (i.e., higher exploration), and the noise decreases over time as the agent gains more experience (i.e., higher exploitation). The starting value for epsilon and its decay rate are two hyperparameters that were tuned during experimentation.
 
-You can find the epsilon process implemented [here](https://github.com/ASO92/DRL_p2_ContinuousControl_Udacity/blob/master/ddpg_agent.py#L79) in the `Agent.act()` method in `ddpg_agent.py` of the source code. While the epsilon decay is performed [here](https://github.com/tommytracey/DeepRL-P2-Continuous-Control/blob/master/ddpg_agent.py#L128) as part of the learning step.
+
 
 The final noise parameters were set as follows:
 
 ```python
-OU_SIGMA = 0.15          # Ornstein-Uhlenbeck noise parameter
-OU_THETA = 0.15         # Ornstein-Uhlenbeck noise parameter
-EPSILON = 1.0           # explore->exploit noise process added to act step
-EPSILON_DECAY = 1e-5    # decay rate for noise process
+
+mu = 0          # Ornstein-Uhlenbeck noise parameter
+theta = 0.15         # Ornstein-Uhlenbeck noise parameter
+sigma = 0.1         # Ornstein-Uhlenbeck noise parameter
 ```
 
 #### Learning Interval
