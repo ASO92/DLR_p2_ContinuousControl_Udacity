@@ -103,15 +103,15 @@ Of these, I only tuned sigma. After running a few experiments, I reduced sigma f
 
 Notice also there's an epsilon parameter used to decay the noise level over time. This decay mechanism ensures that more noise is introduced earlier in the training process (i.e., higher exploration), and the noise decreases over time as the agent gains more experience (i.e., higher exploitation). The starting value for epsilon and its decay rate are two hyperparameters that were tuned during experimentation.
 
-You can find the epsilon process implemented [here](https://github.com/tommytracey/DeepRL-P2-Continuous-Control/blob/master/ddpg_agent.py#L79) in the `Agent.act()` method in `ddpg_agent.py` of the source code. While the epsilon decay is performed [here](https://github.com/tommytracey/DeepRL-P2-Continuous-Control/blob/master/ddpg_agent.py#L128) as part of the learning step.
+You can find the epsilon process implemented [here](https://github.com/ASO92/DRL_p2_ContinuousControl_Udacity/blob/master/ddpg_agent.py#L79) in the `Agent.act()` method in `ddpg_agent.py` of the source code. While the epsilon decay is performed [here](https://github.com/tommytracey/DeepRL-P2-Continuous-Control/blob/master/ddpg_agent.py#L128) as part of the learning step.
 
 The final noise parameters were set as follows:
 
 ```python
-OU_SIGMA = 0.2          # Ornstein-Uhlenbeck noise parameter
+OU_SIGMA = 0.15          # Ornstein-Uhlenbeck noise parameter
 OU_THETA = 0.15         # Ornstein-Uhlenbeck noise parameter
 EPSILON = 1.0           # explore->exploit noise process added to act step
-EPSILON_DECAY = 1e-6    # decay rate for noise process
+EPSILON_DECAY = 1e-5    # decay rate for noise process
 ```
 
 #### Learning Interval
