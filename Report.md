@@ -85,6 +85,24 @@ self.critic_target = Critic(state_size, action_size, random_seed).to(device)
 self.critic_optimizer = optim.Adam(self.critic_local.parameters(), lr=LR_CRITIC, weight_decay=WEIGHT_DECAY)
 ```
 
+#### Summary actor-critic method
+
+The structure of the Actor is as follows:
+- F1 = ReLU (input_state (states = 33) x 128 neurons)
+- F2 = ReLU (F1 x 128 neurons)
+- F3 = ReLU (F2 x output_state (actions = 4))
+
+The structure of the Critic is as follows:
+- F1 = ReLU (input_state (states = 33) x 128 neurons)
+- F2 = ReLU (F1+action_size (=4) x 128 neurons)
+- F3 = ReLU (F2 x 1)
+
+Two NNs for actor and critic of same architecture are used:
+local network (θ_local) and target network (θ_target).
+
+The target network is soft updated using the local network θ_target = τθ_local + (1 - τ)θ_target.
+
+
 #### Exploration vs Exploitation
 One challenge is choosing which action to take while the agent is still learning the optimal policy. Should the agent choose an action based on the rewards observed thus far? Or, should the agent try a new action in hopes of earning a higher reward? This is known as the **exploration vs. exploitation dilemma**.
 
@@ -96,16 +114,10 @@ Instead, we'll use the **Ornstein-Uhlenbeck process**, as suggested in the previ
 
 You can find the Ornstein-Uhlenbeck process implemented [here](https://github.com/ASO92/DRL_p2_ContinuousControl_Udacity/blob/master/ddpg_agent.py#L139) in the `OUNoise` class in `ddpg_agent.py` of the source code.
 
-
-
 The Ornstein-Uhlenbeck process itself has three hyperparameters that determine the noise characteristics and magnitude:
 - mu: the long-running mean
 - theta: the speed of mean reversion
 - sigma: the volatility parameter
-
-
-
-
 
 The final noise parameters were set as follows:
 
@@ -116,23 +128,37 @@ theta = 0.15         # Ornstein-Uhlenbeck noise parameter
 sigma = 0.1         # Ornstein-Uhlenbeck noise parameter
 ```
 
-#### Learning Interval
-In the first few versions of my implementation, the agent performed the learning step at every timestep. This made training very slow, and there was no apparent benefit to the agent's performance. So, I implemented an interval in which the learning step is only performed every 20 timesteps. As part of each learning step, the algorithm samples experiences from the buffer and runs the `Agent.learn()` method 10 times.
 
-```python
-LEARN_EVERY = 20        # learning timestep interval
-LEARN_NUM = 10          # number of learning passes
-```
+#### Hyperparameters
 
-You can find the learning interval implemented [here](https://github.com/tommytracey/DeepRL-P2-Continuous-Control/blob/master/ddpg_agent.py#L66) in the `Agent.step()` method in `ddpg_agent.py` of the source code.
+Here are shown the rest of the hyperparameters of the simulation
+
+- BUFFER_SIZE = 1e5 # replay buffer size
+- BATCH_SIZE = 128 # minibatch size
+- GAMMA = 0.99 # discount factor
+- TAU = 1e-3 # for soft update of target parameters
+- LR_ACTOR = 2e-4 # Actor Learning Rate
+- LR_CRITIC = 2e-4 # Critic Learning Rate
+maximum number of timesteps per episode =1000
+- WEIGHT_DECAY = 0 # L2 weight decay
+
+### 4. Results obtained
+
+It the following picture it is shown the training queue with the time of each episode (much more reasonable to learn compared to the 20 agents environment)
+
+The environment has been solved in **20 episodes**
 
 
-## Ideas for Future Work
 
 
-3. Negative rewards could be introduced to discourage the Agent from taking aleatory moves away from its goal of keeping in touch with the target.  
+In the following picture it can be shown the 
 
-5. There are other actor-critic algorithms proposed to solve this kind of environment. So, future works may implement them to verify their performance. Some of those algorithms are:  
+### 5. Ideas for Future Work
+1. It could be used different neural networks for actor and critic.
+
+2. Negative rewards could be introduced to discourage the Agent from taking aleatory moves away from its goal of keeping in touch with the target.  
+
+3. There are other actor-critic algorithms proposed to solve this kind of environment. So, future works may implement them to verify their performance. Some of those algorithms are:  
    * [TRPO - Trust Region Policy Optimization](https://arxiv.org/abs/1502.05477)
    * [GAE - Generalized Advantage Estimation](https://arxiv.org/abs/1506.02438)
    * [A3C - Asynchronous Advantage Actor-Critic](https://arxiv.org/abs/1602.01783)  
