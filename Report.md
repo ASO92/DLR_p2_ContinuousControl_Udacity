@@ -62,6 +62,9 @@ The chosen algorithm for this project is outlined in [this paper](https://arxiv.
 
 To start with, I used [this single-agent DDPG](https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-pendulum) as a template, and also [this other](https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-bipedal). As handbook it also has been used the Udacity's classroom concepts and lessons.
 
+This is a picture obtained from the referenced paper, and it is used as a reference tu understand the behaviour of the algorithm.
+![DDPG_algorithm](./assets/DDPGalgorithm.png)
+
 #### Actor-Critic Method
 Actor-critic methods leverage the strengths of both policy-based and value-based methods.
 
