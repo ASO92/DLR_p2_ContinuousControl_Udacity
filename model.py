@@ -1,9 +1,9 @@
-
 import numpy as np
 
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import torch as FF
 
 def hidden_init(layer):
     fan_in = layer.weight.data.size()[0]
@@ -44,7 +44,7 @@ class Actor(nn.Module):
         x = F.relu(self.fc1(state))
         x = self.bn1(x)
         x = F.relu(self.fc2(x))
-        return F.tanh(self.fc3(x))
+        return FF.tanh(self.fc3(x))
 
 
 class Critic(nn.Module):
@@ -62,13 +62,13 @@ class Critic(nn.Module):
         """
         super(Critic, self).__init__()
         self.seed = torch.manual_seed(seed)
-
+        
         # The first layer takes in the state
         self.fcs1 = nn.Linear(state_size, fcs1_units)
-
+        
         # The second layer concatenates the actions with the output of previous layer
         self.fc2 = nn.Linear(fcs1_units+action_size, fc2_units)
-
+        
         # Here the output is 1 because we want to get the Q values for input state and action
         self.fc3 = nn.Linear(fc2_units, 1)
         self.bn1 = nn.BatchNorm1d(fcs1_units)
@@ -86,7 +86,7 @@ class Critic(nn.Module):
             state = torch.unsqueeze(state,0)
         xs = F.relu(self.fcs1(state))
         xs = self.bn1(xs)
-
+        
         # Concatenate the action and the values from previous layer
         x = torch.cat((xs, action), dim=1)
         x = F.relu(self.fc2(x))
