@@ -5,8 +5,6 @@
 In a first attempt it was intended to solve the environment with 20 agents, nevertheless the time spent on training the model made really difficult the trial and error attempts. Almost 15 mins for episode, does not give option to tune hyperparamenters and see results quickly.
 ![Trial-error attempts](./assets/time_1episode_1000tsteps.PNG)
 
-
-
 For that reason, finally, I decided to solve the **Version 1** of the environment, with just ONE agent.
 
 **Goal of Version 1:**
@@ -20,7 +18,8 @@ Here are the high-level steps taken in building an agent that solves this enviro
 1. Evaluate the state and action space.
 2. Establish performance baseline using a random action policy.
 3. Select an appropriate algorithm and begin implementing it.
-4. Run experiments, make revisions, and retrain the agent until the performance threshold is reached.
+4. Run experiments and deploy results.
+5. Present Ideas for Future Work.
 
 ##### &nbsp;
 
@@ -144,14 +143,14 @@ maximum number of timesteps per episode =1000
 
 ### 4. Results obtained
 
-It the following picture it is shown the training queue with the time of each episode (much more reasonable to learn compared to the 20 agents environment)
+The environment has been solved in **227 episodes**
 
-The environment has been solved in **20 episodes**
-
-
+`Environment solved in 227 episodes!	Average Score: 30.16`
 
 
-In the following picture it can be shown the
+In the following picture it can be shown the evolution of the training.
+
+![Scores and average](./assets/Average_scores.png)
 
 
 
