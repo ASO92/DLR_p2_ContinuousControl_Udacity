@@ -151,7 +151,9 @@ The environment has been solved in **20 episodes**
 
 
 
-In the following picture it can be shown the 
+In the following picture it can be shown the
+
+
 
 ### 5. Ideas for Future Work
 1. It could be used different neural networks for actor and critic.

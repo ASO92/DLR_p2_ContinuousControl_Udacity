@@ -3,7 +3,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import torch as FF
+
 
 def hidden_init(layer):
     fan_in = layer.weight.data.size()[0]
@@ -44,7 +44,7 @@ class Actor(nn.Module):
         x = F.relu(self.fc1(state))
         x = self.bn1(x)
         x = F.relu(self.fc2(x))
-        return FF.tanh(self.fc3(x))
+        return torch.tanh(self.fc3(x))
 
 
 class Critic(nn.Module):

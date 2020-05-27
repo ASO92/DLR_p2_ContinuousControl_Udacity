@@ -26,7 +26,7 @@ It may be a representation of a real problem of several robotic arms trying to g
 
 This environment has been built using the **Unity Machine Learning Agents Toolkit (ML-Agents)**, which is an open-source Unity plugin that enables games and simulations to serve as environments for training intelligent agents. You can read more about ML-Agents by perusing this [GitHub repository](https://github.com/Unity-Technologies/ml-agents).  
 
-The project environment provided by Udacity is similar to, but not identical to the Reacher environment on the [Unity ML-Agents GitHub page](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher). All the code used in this repository is a variation of the....
+The project environment provided by Udacity is similar to, but not identical to the Reacher environment on the [Unity ML-Agents GitHub page](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher).
 
 In this environment, a double-jointed arm can move to target locations. A reward of `+0.1` is provided for each step that the agent's hand is in the goal location.  
 Thus, the goal of the agent is to maintain its position at the target location for as many time steps as possible.
@@ -56,9 +56,8 @@ The barrier to solving the second version of the environment is slightly differe
   * ddpg_agent.py
   * model.py
 * The trained model
-  * checkpoint.pt
-* A file describing all the packages required to set up the environment
-  * environment.yml
+  * checkpoint_actor.pth
+  * checkpoint_critic.pth
 * A Report.md file describing the development process and the learning algorithm, along with ideas for future work
 * This README.md file
 
@@ -161,29 +160,30 @@ You need only select the environment that matches your operating system:
 
 ## 5. Train the agent
 
+To train the agent it is recommended to explore the [Continuous_Control.ipynb](./DRL_p2_ContinuousControl_Udacity/Continuous_Control.ipynb) file.
+
 
 #### 5.2 Adjusting the Hyperparameters
 To experiment with how the Agent learns through distinct parameters, you can tune these variables:  
 
-**1.** In the **Continuous_Control.ipynb** file  
 
-* **\_target_score**: How many points your agent must obtain to consider the environment solved
-* **\_target_episodes**: How many episodes to consider when calculating the moving average
+**1.** In the **Continuous_Control.ipynb** file:
+
 * **n_episodes**: Maximum number of training episodes
 * **max_t**: Maximum number of time steps per episode
-* **random_seed**: The number used to initialize the pseudorandom number generator
+* **print_every**: The number of episodes to display information
+* **save_every**: The number of episodes to save actor NN and critic NN.
 
-**2.** In the **ddpg_agent.py** file
 
-* **\_batch_size**: Minibatch size
-* **\_buffer_size**: Replay buffer size
-* **\_gamma**: Discount factor for expected rewards
-* **\_lr_actor**: Learning rate for the local actor's network
-* **\_lr_critic**: Learning rate for the local critic's network
-* **\_tau**: Multiplicative factor for the soft-update of the target networks's weights
-* **\_noise_decay**: Multiplicative factor for the noise-process rate decay
-* **fc_layers for the actor network**: Number and size of the actor network's layers
-* **fc_layers for the critic network**: Number and size of the critic network's layers
+**2.** In the **ddpg_agent.py** file:
+
+* **BATCH_SIZE**: Minibatch size
+* **BUFFER_SIZE**: Replay buffer size
+* **GAMMA**: Discount factor for expected rewards
+* **LR_ACTOR**: Learning rate for the local actor's network
+* **LR_CRITIC**: Learning rate for the local critic's network
+* **TAU**: Multiplicative factor for the soft-update of the target networks's weights
+* **WEIGHT_DECAY**: L2 weight decay
 
 ## 6. Uninstall
 If you wish to revert all the modifies in your system, and remove all the code, dependencies and programs installed in the steps above, you will want to follow the next steps.
